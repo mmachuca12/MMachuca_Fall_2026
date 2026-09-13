@@ -1,0 +1,50 @@
+# Module 3,4 Answer to Question 1.
+
+exam1 = float(input("Enter Exam 1 Score: "))
+exam2 = float(input("Enter Exam 2 Score: "))
+
+total_score = (exam1 * 0.60) + (exam2 * 0.40)
+
+print(f"Total score is: {total_score}")
+
+# Module 3,4 Answer to Question 2. 
+
+ticker_symbol = float(input("Enter stock ticker symbol: "))
+num_shares = float(input("Enter number of shares: "))
+share_cost = float(input("Enter cost per share: $"))
+
+amount_invested = (num_shares * share_cost)
+
+print(f"Amount invested is: ${amount_invested}")
+
+# Module 3,4 Answer to Question 3.
+
+last_name = str(input("Enter Last Name: "))
+midterm = float(input("Enter Midterm Exam Grade (0-100): "))
+final = float(input("Enter Final Exam Grade (0-100): "))
+
+total_points = (midterm * 0.40) + (final * 0.60)
+
+print(f"Student last name: {last_name}")
+print(f"Total exam points: {total_points}")
+
+# Module 3,4 Answer to Question 4.
+
+job_1 = float(input("Enter Recipient Amount: $"))
+job_2 = float(input("Enter 2nd Recipient Amount: $"))
+job_3 = float(input("Enter 3rd Recipient Amount: $"))
+
+split = ((job_1 + job_2 + job_3) / 3)
+
+print(f"Amount split evenly per person: $ {split}")
+
+# Module 3,4 Answer to Question 5.
+
+share_price = float(input("Enter Purchase Price per Share: $"))
+stock_price = float(input("Enter Current Stock Price: $"))
+stock_quant = float(input("Enter Quantity of Stock: "))
+
+value = ((stock_price - share_price) * stock_quant)
+
+print(f"Value of Stock: ${value}")
+print(f"Note: Negative amounts indicate losing money")
