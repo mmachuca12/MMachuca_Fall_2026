@@ -1,0 +1,123 @@
+# Answer to Question 1
+
+#up = unit price
+#ep = extended price
+
+qty = float(input("Enter quantity: "))
+if qty >= 1000:
+    up = 3.0
+else:
+    up = 5.0
+ep = qty * up
+tax = 0.07 * ep
+total = ep + tax
+rint(f"Quantity:  + {qty}")
+print(f"Unit price:     $ +    {up}")
+print(f"Extended price: $ + {ep}")
+print(f"Tax amount:     $ +  {tax}")
+print(f"Total:          $ + {total}")
+
+# Answer to Question 2
+
+#ep = extended price
+
+qty = float(input("Quantity of widgets: "))
+
+if qty > 10000:
+    price = 10.0
+if qty >= 5000 and qty <= 10000:
+    price = 20.0
+if qty < 5000:
+    price = 30.0
+    
+ep = qty * price
+tax = ep * 0.07
+total = ep + tax
+
+print("Extended Price: $" + str(ep))
+print("           Tax: $ " +   str(tax))
+print("         Total: $" + str(total))
+
+#Answer to Question 3
+
+pn = input("Enter the part number: ")
+quantity = int(input("Quantity: "))
+
+if pn== "10" or pn == "55":
+    unitcost = 1.00
+elif pn == "99":
+    unitcost = 2.00
+elif pn == "80" or pn == "70":
+    unitcost = 3.00
+else:
+    unitcost = 5.00
+
+totalcost = quantity * unitcost
+
+print(f"Cost Per Unit: $ {unitcost}")
+print(f"Total Cost:    ${totalcost:}")
+
+#Answer to Question 4
+
+pamt = int(input(f"Enter Principle Amount: $"))
+ytm = int(input("Enter years to maturity: "))
+
+if pamt > 100000 and ytm == 5:
+    inrt = 0.06
+else:
+    if pamt >= 50000 and pamt <= 100000 and ytm == 10:
+        inrt = 0.05
+    else:
+        if pamt >= 50000 and pamt <= 100000 and ytm == 5:
+            inrt = 0.04
+        else:
+            inrt = 0.02
+            
+yr1inrt = pamt * inrt
+
+print(f"Interest rate:          %   {inrt * 100}")
+print(f"First year interest:    ${yr1inrt}")
+
+#Answer to Question 5
+
+numtkt = int(input("Number of tickets: "))
+
+if numtkt >= 25:
+    ppt = 50
+else:
+    if numtkt >= 10 and numtkt <= 24:
+        ppt = 60
+    else:
+        if numtkt >= 5 and numtkt <= 9:
+            ppt = 70
+        else:
+            if numtkt < 5:
+                ppt = 75
+                
+total = numtkt * ppt
+
+print("Price per ticket: $" + str(ppt))
+print("Total cost:       $" + str(total))
+
+#Answer to Question 6
+
+#empbns = employee bonus
+
+surname = input("Enter Surname: ")
+salary = float(input("Enter Salary: $"))
+jl = int(input("Enter Job Level: "))
+
+if jl >= 10:
+    br = 0.25
+else:
+    if jl >= 5 and jl <= 9:
+        br = 0.2
+    else:
+        br = 0.1
+        
+empbns = salary * br
+
+print("Employee Surname: " + surname)
+print("Employee Bonus: " + str(empbns))
+
+
