@@ -1,0 +1,154 @@
+#Answer to Question 1
+
+count = 1
+
+while count <= 25:
+  print(count)
+  count = count + 2
+
+#Answer to Question 2
+
+nnumber = int(input("Enter a start value: "))
+stopnumber = int(input("Enter a stop value: "))
+increment = int(input("Enter an increment value: "))
+
+count = number
+while count <=stopnumber:
+  print(count, "+", increment, "=", count)
+  count += increment
+
+#Answer to Question 3
+
+totalpaid = 0.0
+ 
+with open('Question_3.txt', "r") as file:
+    for line in file:
+        name = line.strip()
+            
+        salary_row = file.readline()
+        if not salary_row:
+            break
+        salary = float(salary_row.strip())
+
+#bonus rate = br
+
+        if salary >= 100000.00:
+            br = 0.20
+        elif salary >= 50000.00 and salary <100000.00:
+            br = 0.15
+        elif salary <50000.00:
+            br = 0.10
+
+        bonus = (salary * br)
+        totalpaid += bonus
+
+        print(f"name:  {name}")
+        print(f"Salary: $ {salary}")
+        print(f"Bonus: $ {bonus}")
+        print(f"Sum of Bonuses: $ {totalpaid}")
+
+#Answer to Question 4
+
+count_ordered = 0
+unique_items = 0
+total_sum = 0
+
+with open('Question_4.txt', "r") as file:
+    for line in file:
+        item = line.strip()
+        
+        qty_row = file.readline()
+        if not qty_row:
+            break
+        qty = int(float(qty_row.strip()))
+        
+        price_row = file.readline()
+        if not price_row:
+            break
+        price = float(price_row.strip())
+        
+#calculations
+
+        ep = qty * price
+
+        
+        print(f"Item: {item}")
+        print(f"Quantity ordered: {qty}")
+        print(f"Price of item: $ {price}")
+        print(f"Extended price: $ {ep}")
+        
+        total_sum += ep
+        count_ordered += qty
+        unique_items += 1
+
+if unique_items > 0:
+    average = total_sum / unique_items
+else:
+    average = 0
+    
+print(f"Sum of extended prices: $ {total_sum}")
+print(f"Total quantity of products ordered: {count_ordered}")
+print(f"Average order price: $ {average}")
+
+#Answer to Question 5
+
+credits_taken = 0
+tuition_owed = 0
+total_owed = 0
+sum_students = 0
+
+with open('Question_5.txt', "r") as file:
+    for line in file:
+        surname = line.strip()
+        
+        district_row = file.readline()
+        if not district_row:
+            break
+        district_code = str(district_row.strip())
+        
+        credit_row = file.readline()
+        if not credit_row:
+            break
+        credits_taken = int(float(credit_row.strip()))
+
+#calculations
+#charge = cost per credits
+
+        if district_code == "I":
+            charge = 250.00
+        else:
+            charge = 500.00
+        tuition_owed = credits_taken * charge
+        total_owed += tuition_owed
+        sum_students += 1
+        
+        print(f"Student Last Name: {surname}")
+        print(f"Credits Taken: {credits_taken}")
+        print(f"Tuition Owed: $ {tuition_owed}")
+
+print(f"Sum of all tuition owed: $ {total_owed}")
+print(f"Number of students: {sum_students}")
+
+#Answer to Question 6
+
+count_students = 0
+avg = 0
+message = "Do you want to initiate this program? (yes or no) "
+choice = input(message)
+while choice == 'yes':
+    
+    surname = input("Enter Student Last Name: ")
+    exam1 = int(input("Enter first exam score: "))
+    exam2 = int(input("Enter second exam score: "))
+    
+    avg = ((exam1 + exam2) / 2)
+    
+    print(f"Last Name: {surname}")
+    print(f"Average Score: {avg}")
+
+    count_students += 1
+    print(f"Number of students who entered data: {count_students}")
+
+    choice = input("Do you want to continue this program? (yes or no):")
+
+
