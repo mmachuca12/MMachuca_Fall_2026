@@ -1,0 +1,12 @@
+Anderson
+O
+10
+Aguilar
+O
+12
+Perez
+I
+15
+Vega
+I
+8

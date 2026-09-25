@@ -1,0 +1,15 @@
+Shorts
+50
+20
+Sweatpants
+40
+30
+Sweater
+50
+35
+Long-sleeve
+50
+25
+T-Shirt
+50
+20

@@ -1,0 +1,10 @@
+Machuca
+60000.00
+Gonzalez
+70000.00
+Jones
+50000.00
+Ramirez
+80000.00
+Harvey
+75000.00
