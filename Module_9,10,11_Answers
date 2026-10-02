@@ -1,0 +1,188 @@
+#Answer to Question 1:
+
+def compute(qty, price):
+    ep = qty * price
+    if ep > 10000:
+        ep = ep * 0.9
+    
+    return ep
+
+# Main
+signal = "Yes"
+total = 0.0
+while signal == "Yes":
+    print("Please enter a quantity: ")
+    qty = int(input())
+    print("Please enter a unit price: $")
+    price = float(input())
+    ep = compute(qty, price)
+    total = total + ep
+    print("Quantity: " + str(qty))
+    print("Unit price: $" + str(price))
+    print("Extended price: $" + str(ep))
+    print("Do you want to add another item? (Yes/No)")
+    signal = input()
+print("Total price for all items: $" + str(total))
+
+#Answer to Question 2:
+
+def compute(numHits, numBats):
+    batAvg = 0
+    batAvg = float(numHits) / numBats
+    
+    return batAvg
+
+# Main
+count = 0
+signal = "Yes"
+while signal == "Yes":
+    print("Please enter player's last name: ")
+    surname = input()
+    print("Please enter number of hits: ")
+    numHits = int(input())
+    print("Please enter number of bats: ")
+    numBats = int(input())
+    batAvg = compute(numHits, numBats)
+    print("Player Last Name: " + surname)
+    print("Player's Batting Average: " + str(batAvg))
+    print("Do you want to add another player? (Yes/No)")
+    signal = input()
+    count = count + 1
+print("Total number of players entered: " + str(count))
+
+#Answer to Question 3:
+
+def computeForecast(sales, month):
+    if month == "Jan" or month == "Feb" or month == "Mar":
+        forecastpct = 0.1
+    if month == "Apr" or month == "May" or month == "Jun":
+        forecastpct = 0.15
+    if month == "Jul" or month == "Aug" or month == "Sep":
+        forecastpct = 0.2
+    if month == "Oct" or month == "Nov" or month == "Dec":
+        forecastpct = 0.25
+    nextMonthSale = sales * 1 + forecastpct
+    
+    return nextMonthSale
+
+# Main
+nextMonthFcast = 0
+signal = "Yes"
+print("Do you want to input data into the program? (Yes/No)")
+yes = input()
+while signal == "Yes":
+    print("Please input your last name: ")
+    surname = input()
+    print("Please enter a month: ")
+    month = input()
+    print("Please enter a sales amount: $")
+    sales = float(input())
+    nextMonthSale = computeForecast(sales, month)
+    print("Next month's forecasted sales amount is $" + str(nextMonthSale))
+    print("Do you want to input more data into the program? (Yes/No)")
+    signal = input()
+print("Thank you for using this program.")
+
+#Answer to Question 4:
+
+def computePrice(model, msrp, make, response):
+    if model == "Honda Accord":
+        pctMSRP = 0.1
+    if model == "Toyota Rav4":
+        pctMSRP = 0.15
+    if response == "Y":
+        pctMSRP = 0.3
+    else:
+        pctMSRP = 0.05
+    discountedPrice = msrp - msrp * pctMSRP
+    newTotal = discountedPrice + 0.07
+    
+    return newTotal
+
+# Main
+sumMSRP = 0
+total = 0
+signal = "Yes"
+print("Do you want to input data into the program? (Yes/No)")
+yes = input()
+while signal == "Yes":
+    print("Please enter the make/brand of the car.")
+    make = input()
+    print("Please enter the model.")
+    model = input()
+    print("Is your car electric? (Y or N)")
+    response = input()
+    print("Please enter MSRP (sticker price) of the automobile.")
+    msrp = float(input())
+    newTotal = computePrice(model, msrp, make, response)
+    print("Your new Total is: $" + str(newTotal))
+    sumMSRP = sumMSRP + msrp
+    total = total + newTotal
+    print("Do you want to add another car make/model? (Yes/No)")
+    signal = input()
+print("Sum of all MSRP's is $" + str(sumMSRP))
+print("The sum of all sales is $" + str(total))
+
+#Answer to Question 5:
+
+def compute(qty, discRate, price, byRefdiscAmt, byRefdiscPrice):
+    discPrice = 0
+    discAmt = 0
+    byRefdiscAmt[0] = qty * price * discRate
+    byRefdiscPrice[0] = qty * price - byRefdiscAmt[0]
+    discPrice = qty * price - discAmt
+
+def compute1():
+    pass
+
+# Main
+byRefdiscAmt = [0] * (1)
+byRefdiscPrice = [0] * (1)
+
+signal = "Yes"
+print("Do you want to start this program? (Yes/No)")
+signal = input()
+while signal == "Yes":
+    print("Please input a quantity: ")
+    qty = int(input())
+    print("Please input a price: $")
+    price = float(input())
+    print("Please input a discount rate (decimal): ")
+    discRate = float(input())
+    compute(qty, discRate, price, byRefdiscAmt, byRefdiscPrice)
+    print("Do you want to enter more data? (Yes/No)")
+    signal = input()
+    print("The quantity you entered is: " + str(qty))
+    print("The price you entered is: $" + str(price))
+    print("The discount amount is $" + str(byRefdiscAmt[0]))
+    print("The discounted price is $" + str(byRefdiscPrice[0]))
+
+#Answer to Question 6
+
+def compute(exam1, exam2, exam3, byRefavg, byReftotal):
+    byRefavg[0] = (exam1 + exam2 + exam3) / 3
+    byReftotal[0] = exam1 + exam2 + exam3
+
+# Main
+byRefavg = [0] * (1)
+byReftotal = [0] * (1)
+
+signal = "Yes"
+print("Do you want to start this program? (Yes/No)")
+signal = input()
+while signal == "Yes":
+    print("Please enter your last name: ")
+    surname = input()
+    print("Please enter Exam 1 score: ")
+    exam1 = float(input())
+    print("Please enter Exam 2 score: ")
+    exam2 = float(input())
+    print("Please enter Exam 3 score: ")
+    exam3 = float(input())
+    compute(exam1, exam2, exam3, byRefavg, byReftotal)
+    print("Student Last Name: " + surname)
+    print("Student's average points: " + str(byRefavg[0]))
+    print("Student's total points: " + str(byReftotal[0]))
+    print("Do you want to enter another student?")
+    signal = input()
+
