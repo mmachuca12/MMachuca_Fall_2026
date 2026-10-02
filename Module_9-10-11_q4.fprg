@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="q4"/>
+        <attribute name="authors" value="maria"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-01 06:49:39 PM"/>
+        <attribute name="created" value="bWFyaWE7TUFSSUE7MjAyNi0xMC0wMTswNzoyODowNyBBTTsyMTQ5"/>
+        <attribute name="edited" value="bWFyaWE7TUFSSUE7MjAyNi0xMC0wMTswNjo0OTozOSBQTTsxOzIyNzk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="make" type="String" array="False" size=""/>
+            <declare name="model" type="String" array="False" size=""/>
+            <declare name="evcode" type="String" array="False" size=""/>
+            <declare name="msrp" type="Real" array="False" size=""/>
+            <declare name="response" type="String" array="False" size=""/>
+            <declare name="sum" type="Real" array="False" size=""/>
+            <declare name="total" type="Real" array="False" size=""/>
+            <declare name="sumMSRP" type="Real" array="False" size=""/>
+            <declare name="newTotal" type="Real" array="False" size=""/>
+            <declare name="Yes" type="String" array="False" size=""/>
+            <declare name="signal" type="String" array="False" size=""/>
+            <assign variable="sumMSRP" expression="0"/>
+            <assign variable="total" expression="0"/>
+            <assign variable="signal" expression="&quot;Yes&quot;"/>
+            <output expression="&quot;Do you want to input data into the program? (Yes/No)&quot;" newline="True"/>
+            <input variable="Yes"/>
+            <while expression="signal==&quot;Yes&quot;">
+                <output expression="&quot;Please enter the make/brand of the car.&quot;" newline="True"/>
+                <input variable="make"/>
+                <output expression="&quot;Please enter the model.&quot;" newline="True"/>
+                <input variable="model"/>
+                <output expression="&quot;Is your car electric? (Y or N)&quot;" newline="True"/>
+                <input variable="response"/>
+                <output expression="&quot;Please enter MSRP (sticker price) of the automobile.&quot;" newline="True"/>
+                <input variable="MSRP"/>
+                <assign variable="newTotal" expression="computePrice(model, msrp, make, response)"/>
+                <output expression="&quot;Your new Total is: $&quot;&amp;newTotal" newline="True"/>
+                <assign variable="sumMSRP" expression="sumMSRP + msrp"/>
+                <assign variable="total" expression="total + newTotal"/>
+                <output expression="&quot;Do you want to add another car make/model? (Yes/No)&quot;" newline="True"/>
+                <input variable="signal"/>
+            </while>
+            <output expression="&quot;Sum of all MSRP's is $&quot;&amp;sumMSRP" newline="True"/>
+            <output expression="&quot;The sum of all sales is $&quot;&amp;total" newline="True"/>
+        </body>
+    </function>
+    <function name="computePrice" type="Real" variable="newTotal">
+        <parameters>
+            <parameter name="model" type="String" array="False"/>
+            <parameter name="msrp" type="Real" array="False"/>
+            <parameter name="make" type="String" array="False"/>
+            <parameter name="response" type="String" array="False"/>
+        </parameters>
+        <body>
+            <declare name="newTotal" type="Real" array="False" size=""/>
+            <declare name="pctMSRP" type="Real" array="False" size=""/>
+            <declare name="discountedPrice" type="Real" array="False" size=""/>
+            <declare name="newMSRP" type="Real" array="False" size=""/>
+            <if expression="model==&quot;Honda Accord&quot;">
+                <then>
+                    <assign variable="pctMSRP" expression="0.10"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="model==&quot;Toyota Rav4&quot;">
+                <then>
+                    <assign variable="pctMSRP" expression="0.15"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="response==&quot;Y&quot;">
+                <then>
+                    <assign variable="pctMSRP" expression="0.30"/>
+                </then>
+                <else>
+                    <assign variable="pctMSRP" expression="0.05"/>
+                </else>
+            </if>
+            <assign variable="discountedPrice" expression="MSRP-(MSRP*pctMSRP)"/>
+            <assign variable="newTotal" expression="discountedPrice+0.07"/>
+        </body>
+    </function>
+</flowgorithm>

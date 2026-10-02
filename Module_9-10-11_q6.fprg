@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="q6"/>
+        <attribute name="authors" value="maria"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-02 04:51:01 PM"/>
+        <attribute name="created" value="bWFyaWE7TUFSSUE7MjAyNi0xMC0wMjswNDoxNDozNSBQTTsyMTU4"/>
+        <attribute name="edited" value="bWFyaWE7TUFSSUE7MjAyNi0xMC0wMjswNDo1MTowMSBQTTsxOzIyNjA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="surname" type="String" array="False" size=""/>
+            <declare name="exam1" type="Real" array="False" size=""/>
+            <declare name="exam2" type="Real" array="False" size=""/>
+            <declare name="exam3" type="Real" array="False" size=""/>
+            <declare name="signal" type="String" array="False" size=""/>
+            <declare name="byRefavg" type="Real" array="True" size="1"/>
+            <declare name="byReftotal" type="Real" array="True" size="1"/>
+            <assign variable="signal" expression="&quot;Yes&quot;"/>
+            <output expression="&quot;Do you want to start this program? (Yes/No)&quot;" newline="True"/>
+            <input variable="signal"/>
+            <while expression="signal==&quot;Yes&quot;">
+                <output expression="&quot;Please enter your last name: &quot;" newline="True"/>
+                <input variable="surname"/>
+                <output expression="&quot;Please enter Exam 1 score: &quot;" newline="True"/>
+                <input variable="exam1"/>
+                <output expression="&quot;Please enter Exam 2 score: &quot;" newline="True"/>
+                <input variable="exam2"/>
+                <output expression="&quot;Please enter Exam 3 score: &quot;" newline="True"/>
+                <input variable="exam3"/>
+                <call expression="compute(exam1, exam2, exam3, byRefavg, byReftotal)"/>
+                <output expression="&quot;Student Last Name: &quot;&amp;surname" newline="True"/>
+                <output expression="&quot;Student's average points: &quot; &amp;byRefavg[0]" newline="True"/>
+                <output expression="&quot;Student's total points: &quot;&amp;byReftotal[0]" newline="True"/>
+                <output expression="&quot;Do you want to enter another student?&quot;" newline="True"/>
+                <input variable="signal"/>
+            </while>
+        </body>
+    </function>
+    <function name="compute" type="None" variable="">
+        <parameters>
+            <parameter name="exam1" type="Real" array="False"/>
+            <parameter name="exam2" type="Real" array="False"/>
+            <parameter name="exam3" type="Real" array="False"/>
+            <parameter name="byRefavg" type="Real" array="True"/>
+            <parameter name="byReftotal" type="Real" array="True"/>
+        </parameters>
+        <body>
+            <assign variable="byRefavg[0]" expression="(exam1 + exam2 + exam3)/3"/>
+            <assign variable="byReftotal[0]" expression="exam1 + exam2 + exam3"/>
+        </body>
+    </function>
+</flowgorithm>

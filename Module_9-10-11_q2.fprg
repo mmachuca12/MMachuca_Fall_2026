@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="q2"/>
+        <attribute name="authors" value="maria"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-09-30 04:48:34 PM"/>
+        <attribute name="created" value="bWFyaWE7TUFSSUE7MjAyNi0wOS0zMDswNzoyODoxMCBBTTsyMTUz"/>
+        <attribute name="edited" value="bWFyaWE7TUFSSUE7MjAyNi0wOS0zMDswNDo0ODozNCBQTTsxOzIyODE="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="surname" type="String" array="False" size=""/>
+            <declare name="numHits" type="Integer" array="False" size=""/>
+            <declare name="numBats" type="Integer" array="False" size=""/>
+            <declare name="batAvg" type="Real" array="False" size=""/>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <declare name="signal" type="String" array="False" size=""/>
+            <assign variable="signal" expression="&quot;Yes&quot;"/>
+            <while expression="signal==&quot;Yes&quot;">
+                <output expression="&quot;Please enter player's last name: &quot;" newline="True"/>
+                <input variable="surname"/>
+                <output expression="&quot;Please enter number of hits: &quot;" newline="True"/>
+                <input variable="numHits"/>
+                <output expression="&quot;Please enter number of bats: &quot;" newline="True"/>
+                <input variable="numBats"/>
+                <assign variable="batAvg" expression="compute(numHits, numBats)"/>
+                <output expression="&quot;Player Last Name: &quot;&amp;surname" newline="True"/>
+                <output expression="&quot;Player's Batting Average: &quot;&amp;batAvg" newline="True"/>
+                <output expression="&quot;Do you want to add another player? (Yes/No)&quot;" newline="True"/>
+                <input variable="signal"/>
+                <assign variable="count" expression="count + 1"/>
+            </while>
+            <output expression="&quot;Total number of players entered: &quot;&amp;count" newline="True"/>
+        </body>
+    </function>
+    <function name="compute" type="Real" variable="batAvg">
+        <parameters>
+            <parameter name="numHits" type="Integer" array="False"/>
+            <parameter name="numBats" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="batAvg" type="Real" array="False" size=""/>
+            <assign variable="batAvg" expression="0"/>
+            <assign variable="batAvg" expression="numHits / numBats"/>
+        </body>
+    </function>
+</flowgorithm>
