@@ -1,0 +1,36 @@
+#Answer to Question 1:
+
+surname = []
+
+with open('names.txt', "r") as file:
+  for line in file:
+      surname.append(line.strip())
+
+def displaynames(names_list):
+    print("-Names in Order-")
+    for name in names_list:
+        print(name)
+
+def displaynames_reverse(names_list):
+    print("-Names in Reverse-")
+    for name in names_list[::-1]:
+        print(name)
+
+displaynames(surname)
+displaynames_reverse(surname)
+
+#Answer to Question 2:
+
+surname = []
+grade = []
+
+with open('names.txt', "r") as file:
+  for line in file:
+      surname.append(line.strip())
+
+def displaynames(names_list):
+    print("-Names in Order-")
+    for name in names_list:
+        print(name)
+
+displaynames(surname)
