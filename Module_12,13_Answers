@@ -1,44 +1,44 @@
 #Answer to Question 1:
 
-surname = []
+surname = ["Machuca", "Jones", "Harvey", "Johnson", "Myers", "Peters", "Bryant", "Ochoa", "Cruz", "Adams"]
 
-with open('names.txt', "r") as file:
-    for line in file:
-        surname.append(line.strip())
-        
-def display_names(names_list):
-    print("-Records in Order-")
-    for name in names_list:
+def displaynames(surname):
+    print("-Names in Order-")
+    for name in surname:
         print(name)
 
-def display_names_reverse(names_list):
-  print("-Records in Reverse-")
+def displaynames_reverse(surname):
+    print("Names in Reverse-")
+    
+    index = len(surname) - 1
+    
+    for i in range(index, -1, -1):
+        print(surname[i])
 
-  index = len(names_list) - 1
-
-  for i in range(index, -1, -1):
-      print(names_list[i])
-
-display_names(surname)
-display_names_reverse(surname)
+displaynames(surname)
+displaynames_reverse(surname)
 
 #Answer to Question 2:
 
-surname = []
-grades = []
+surname = ["Machuca", "Jones", "Harvey", "Johnson", "Myers", "Peters", "Bryant", "Ochoa", "Cruz", "Adams"]
+grades = [89, 91, 82, 77, 90, 75, 78, 93, 96, 84]
 
-with open('names_2.txt', "r") as file:
-    for line in file:
-        surname.append(line.strip())
-            
-        grade_row = file.readline()
-        if not grade_row:
-            break
-        grades.append(int(grade_row.strip()))
-        
-def display_names_parallel(names_list, grades_list):
-    print("-Records in Order-")
-    for i in range(len(names_list)):
-        print(f"name: {names_list[i]}, Grade: {grades_list[i]}")
+def displayparallel(surname, grades):
+    print("-Student Records-")
+    
+    for i in range(len(surname)):
+        print(f"Name:{surname[i]} ; Grade:{grades[i]}")
 
-display_names_parallel(surname, grades)
+def displayparallel_reverse(surnamge, grades):
+    print("-Student Records in Reverse-")
+    
+    index = len(surname) - 1
+    
+    for i in range(index, -1, -1):
+        print(f"Name:{surname[i]} ; Grade: {grades[i]}")
+
+displayparallel(surname, grades)
+displayparallel_reverse(surname, grades)
+
+#Answer to Question 3:
+
