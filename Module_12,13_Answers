@@ -3,34 +3,42 @@
 surname = []
 
 with open('names.txt', "r") as file:
-  for line in file:
-      surname.append(line.strip())
-
-def displaynames(names_list):
-    print("-Names in Order-")
+    for line in file:
+        surname.append(line.strip())
+        
+def display_names(names_list):
+    print("-Records in Order-")
     for name in names_list:
         print(name)
 
-def displaynames_reverse(names_list):
-    print("-Names in Reverse-")
-    for name in names_list[::-1]:
-        print(name)
+def display_names_reverse(names_list):
+  print("-Records in Reverse-")
 
-displaynames(surname)
-displaynames_reverse(surname)
+  index = len(names_list) - 1
+
+  for i in range(index, -1, -1):
+      print(names_list[i])
+
+display_names(surname)
+display_names_reverse(surname)
 
 #Answer to Question 2:
 
 surname = []
-grade = []
+grades = []
 
-with open('names.txt', "r") as file:
-  for line in file:
-      surname.append(line.strip())
+with open('names_2.txt', "r") as file:
+    for line in file:
+        surname.append(line.strip())
+            
+        grade_row = file.readline()
+        if not grade_row:
+            break
+        grades.append(int(grade_row.strip()))
+        
+def display_names_parallel(names_list, grades_list):
+    print("-Records in Order-")
+    for i in range(len(names_list)):
+        print(f"name: {names_list[i]}, Grade: {grades_list[i]}")
 
-def displaynames(names_list):
-    print("-Names in Order-")
-    for name in names_list:
-        print(name)
-
-displaynames(surname)
+display_names_parallel(surname, grades)
