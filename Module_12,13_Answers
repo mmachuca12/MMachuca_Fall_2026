@@ -42,3 +42,53 @@ displayparallel_reverse(surname, grades)
 
 #Answer to Question 3:
 
+surname = []
+grades = []
+
+with open('data_Q3.txt', 'r') as file:
+    for line in file:
+        surname.append(line.strip())
+        
+        grade_row = file.readline()
+        if not grade_row:
+            break
+        grades.append(int(grade_row.strip()))
+        
+def displaydata(names_list, grades_list):
+    high_score = 0
+    high_index = 0
+    
+    low_score = 999
+    low_index = 0
+    
+    for i in range(len(grades_list)):
+        if grades_list[i] > high_score:
+            high_score = grades_list[i]
+            high_index = i
+        
+        if grades_list[i] < low_score:
+            low_score = grades_list[i]
+            low_index = i
+            
+    print(f"Highest score: {names_list[high_index]} | {high_score}")
+    print(f"Lowest score: {names_list[low_index]} | {low_score}")
+
+displaydata(surname, grades)
+
+#Answer to Question 4:
+
+student_dictionary = {"Machuca": 89, "Jones": 91, "Harvey": 82, "Johnson": 77, "Myers": 90, "Peters": 75}
+
+print(f"{'Student Name':<15} | {'Grade':<5}")
+print("-" * 22)
+
+for name, grade in student_dictionary.items():
+    print(f"{name:<15} | {grade:<5}")
+
+print("-" * 22)
+
+total = sum(student_dictionary.values())
+class_avg = total / len(student_dictionary)
+
+print(f"{'Class Average':<15} | {class_avg:<5.1f}")
+
