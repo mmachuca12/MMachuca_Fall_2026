@@ -1,1 +1,164 @@
+#Answer to Question 1:
 
+surname = ["Machuca", "Jones", "Harvey", "Johnson", "Myers", "Peters", "Bryant", "Ochoa", "Cruz", "Adams"]
+
+def displaynames(surname):
+    print("-Names in Order-")
+    for name in surname:
+        print(name)
+
+def displaynames_reverse(surname):
+    print("Names in Reverse-")
+    
+    index = len(surname) - 1
+    
+    for i in range(index, -1, -1):
+        print(surname[i])
+
+displaynames(surname)
+displaynames_reverse(surname)
+
+#Answer to Question 2:
+
+surname = ["Machuca", "Jones", "Harvey", "Johnson", "Myers", "Peters", "Bryant", "Ochoa", "Cruz", "Adams"]
+grades = [89, 91, 82, 77, 90, 75, 78, 93, 96, 84]
+
+def displayparallel(surname, grades):
+    print("-Student Records-")
+    
+    for i in range(len(surname)):
+        print(f"Name:{surname[i]} ; Grade:{grades[i]}")
+
+def displayparallel_reverse(surnamge, grades):
+    print("-Student Records in Reverse-")
+    
+    index = len(surname) - 1
+    
+    for i in range(index, -1, -1):
+        print(f"Name:{surname[i]} ; Grade: {grades[i]}")
+
+displayparallel(surname, grades)
+displayparallel_reverse(surname, grades)
+
+#Answer to Question 3:
+
+surname = []
+grades = []
+
+with open('data_Q3.txt', 'r') as file:
+    for line in file:
+        surname.append(line.strip())
+        
+        grade_row = file.readline()
+        if not grade_row:
+            break
+        grades.append(int(grade_row.strip()))
+        
+def displaydata(names_list, grades_list):
+    high_score = 0
+    high_index = 0
+    
+    low_score = 999
+    low_index = 0
+    
+    for i in range(len(grades_list)):
+        if grades_list[i] > high_score:
+            high_score = grades_list[i]
+            high_index = i
+        
+        if grades_list[i] < low_score:
+            low_score = grades_list[i]
+            low_index = i
+            
+    print(f"Highest score: {names_list[high_index]} | {high_score}")
+    print(f"Lowest score: {names_list[low_index]} | {low_score}")
+
+displaydata(surname, grades)
+
+#Answer to Question 4:
+
+student_dictionary = {"Machuca": 89, "Jones": 91, "Harvey": 82, "Johnson": 77, "Myers": 90, "Peters": 75}
+
+print(f"{'Student Name':<15} | {'Grade':<5}")
+print("-" * 22)
+
+for name, grade in student_dictionary.items():
+    print(f"{name:<15} | {grade:<5}")
+
+print("-" * 22)
+
+total = sum(student_dictionary.values())
+class_avg = total / len(student_dictionary)
+
+print(f"{'Class Average':<15} | {class_avg:<5.1f}")
+
+Answer to Question 5:
+
+student_dictionary = {"Machuca": [89, 92, 87], "Jones": [91, 86, 89], "Harvey": [82, 85, 89], "Johnson": [77, 78, 86]}
+
+def student_avg(student_dictionary):
+    avg_list = []
+    
+    for name, grades in student_dictionary.items():
+        total = 0
+        count = 0
+        for grade in grades:
+            total += grade
+            count += 1
+        student_avg = total / count
+        avg_list.append([name, student_avg])
+    
+    return avg_list
+
+def class_avg(student_dictionary):
+    exam_totals = [0, 0, 0]
+    student_count = 0
+    
+    for grades in student_dictionary.values():
+        exam_totals[0] += grades[0]
+        exam_totals[1] += grades[1]
+        exam_totals[2] += grades[2]
+        student_count += 1
+    
+    class_avg = [exam_totals[0]/student_count, exam_totals[1]/student_count, exam_totals[2]/student_count]
+    
+    return class_avg
+
+student_average = student_avg(student_dictionary)
+
+print(f"{'Student Name':<15} | {'Overall Average Grade': <20}")
+print("-" * 30)
+
+for row in student_average:
+    name = row[0]
+    avg = row[1]
+    print(f"{name:<15} | {avg:<20.2f}")
+print("-" * 30)
+
+class_exams = class_avg(student_dictionary)
+print("-Class Average Per Exam-")
+print(f"Exam 1 Average: {class_exams[0]:.2f}")
+print(f"Exam 2 Average: {class_exams[1]:.2f}")
+print(f"Exam 3 Average: {class_exams[2]:.2f}")
+
+#Answer to Question 6:
+
+player_data = {}
+
+with open('batting.txt', 'r') as file:
+    for line in file:
+        surname = line.strip()
+        
+        avg_row = file.readline()
+        if not avg_row:
+            break
+        player_data[surname] = float(avg_row.strip())
+
+def displaydictionary(data_dictionary):
+    print(f"{'Player Name':<15} | {'Batting Average':<15}")
+    print("-" * 33)
+
+    for surname, avg_row in data_dictionary.items():
+        print(f"{surname:<15} | {avg_row:<15.3f}")
+
+displaydictionary(player_data)
