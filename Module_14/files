@@ -60,3 +60,6 @@ print(f"Student: {student_1.fullname()} | Tuition Owed: {rate_1:.2f}")
 print(f"Student: {student_2.fullname()} | Tuition Owed: {rate_2:.2f}")
 print(f"Student: {student_3.fullname()} | Tuition Owed: {rate_3:.2f}")
 print(f"Student: {student_4.fullname()} | Tuition Owed: {rate_4:.2f}")
+
+#Answer to Question 3:
+
