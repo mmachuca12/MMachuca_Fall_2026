@@ -63,3 +63,34 @@ print(f"Student: {student_4.fullname()} | Tuition Owed: {rate_4:.2f}")
 
 #Answer to Question 3:
 
+class Students:
+   
+    def __init__(self, first, last, credits, district):
+        self.first = first
+        self.last = last
+        self.credits = credits
+        self.district = district
+        self.district_dictionary = {"I":250.00, "O":500.00, "X":800, "G":250.00}
+
+    def fullname(self):
+        return '{} {}'.format(self.first, self.last)
+
+    def tuition(self):
+        rate = self.district_dictionary.get(self.district,0.00)
+        return self.credits * rate
+
+student_1 = Students('Maria', 'Machuca', 10, 'X')
+student_2 = Students('Corey', 'Jones',15, 'O')
+student_3 = Students('Alyssa', 'Adams', 12, 'G')
+student_4 = Students('Jim', 'Hess', 16, 'I')
+
+rate_1 = student_1.tuition()
+rate_2 = student_2.tuition()
+rate_3 = student_3.tuition()
+rate_4 = student_4.tuition()
+
+print(f"Student: {student_1.fullname()} | Tuition Owed: {rate_1:.2f}")
+print(f"Student: {student_2.fullname()} | Tuition Owed: {rate_2:.2f}")
+print(f"Student: {student_3.fullname()} | Tuition Owed: {rate_3:.2f}")
+print(f"Student: {student_4.fullname()} | Tuition Owed: {rate_4:.2f}")
+
