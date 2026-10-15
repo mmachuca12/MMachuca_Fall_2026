@@ -101,22 +101,20 @@ def save_to_file():
     #Outputs inventory to a text file.
     
     with open(output_file, "w") as file:
-        file.write("====================================================================\n")
+        file.write("---------------------------------------------------------\n")
         file.write("             LOGISTICS RECORDING CURRENT INVENTORY REPORT\n")
-        file.write("====================================================================\n")
+        file.write("---------------------------------------------------------\n")
         file.write(f"{'Item Name':<15} | {'Brand Name':<20} | {'Qty':<5} | {'Analyst':<8} | {'Location'}\n")
         file.write("-" * 75 + "\n")
         for item, info in inventory.items():
             file.write(f"{item:<15} | {info['Brand']:<20} | {info['Qty']:<5} | {info['Analyst']:<8} | {info['Location']}\n")
-        file.write("====================================================================\n")
+        file.write("---------------------------------------------------------\n")
 
 
 def main():
+        save_to_file()
     
-    explain_application()
-    save_to_file()
-    
-    while True:
+while True:
         user_choice = menu()
         
         if user_choice == "1":
@@ -127,6 +125,5 @@ def main():
             check_out_location()
         elif user_choice == "4":
             print("\nThank you for using the program.")
-            
-if __name__ == "__main__":
-    main()
+            break
+  
