@@ -1,1 +1,132 @@
+#Logistics Receiving Application
 
+inventory = {
+    "Pipette": {"Brand": "Fisher Scientific", "Qty": 25, "Analyst": "LFB", "Location": "Laboratory"},
+    "Beaker": {"Brand": "Pyrex", "Qty": 50, "Analyst": "MDT", "Location": "Laboratory"},
+    "Journal": {"Brand": "BIC", "Qty": 10, "Analyst": "RZZ", "Location": "Office"}
+}
+
+output_file = "inventory_report.txt"
+
+def explain_application():
+    
+    #Overview
+    
+    print("-" * 60)
+    print("        WELCOME TO THE LOGISTICS RECORDING APPLICATION")
+    print("-" * 60)
+    print("Program overview:")
+    print("- Helps lab staff keep track of tools, chemicals, and office supplies.")
+    print("- Lets you add new supplies and record who ordered them.")
+    print("- Lets you check out items and view their storage locations.")
+    print("- Saves a copy of the inventory directly to a text file.")
+    print("=" * 60)
+
+
+def menu():
+    
+    #Displays navigation options 
+    
+    print("\n--- Supply / Receiving Options ---")
+    print("1. Add Supplies")
+    print("2. View Supplies")
+    print("3. Check Out Location")
+    print("4. Quit")
+    
+    choice = input("Select an option: ").strip()
+    return choice
+
+def add_supplies():
+    
+    #Prompts user for item data and updates inventory.
+    
+    print("\nAdd Supplies Mode")
+    name = input(" Supply Name: ").strip()
+    brand = input(" Supply Brand Name: ").strip()
+    analyst = input(" Ordered by analyst [initials]: ").strip()
+    location = input(" Item Location: ").strip()
+    
+    # Input to check for valid integer
+    while True:
+
+        qty = int(input(" Quantity: "))
+        if qty < 0:
+            print("Quantity cannot be negative. Try again.")
+            continue
+        break
+    
+    # Store and update data
+    if name in inventory:
+        inventory[name]["Qty"] += qty
+        inventory[name]["Analyst"] = analyst  # Update to latest analyst
+        inventory[name]["Location"] = location
+        print(f"--> Updated existing supply. New total for {name}: {inventory[name]['Qty']}")
+    else:
+        inventory[name] = {"Brand": brand, "Qty": qty, "Analyst": analyst, "Location":location}
+        print(f"--> Successfully added new item: {name} in {location}.")
+        
+    save_to_file()
+
+
+def view_supplies():
+    
+    #Formats the dictionary inventory.
+    
+    print("\n View Supplies Mode")
+    print("-" * 70)
+    print(f"{'Item Name':<15} | {'Brand Name':<20} | {'Qty':<5} | {'Analyst':<8} | {'Location'}")
+    print("-" * 70)
+    
+    # Retrieval loop
+    for item, info in inventory.items():
+        print(f"{item:<15} | {info['Brand']:<20} | {info['Qty']:<5} | {info['Analyst']:<8} | {info['Location']}")
+    print("-" * 70)
+
+
+def check_out_location():
+    
+    #Searches for item location.
+    
+    print("\n Check Out Location Mode")
+    search_name = input(" Enter supply name: ").strip().capitalize()
+    
+    if search_name in inventory:
+        print(f"Item Location: {inventory[search_name]['Location']}")
+    else:
+        print("Item not received.")
+
+
+def save_to_file():
+    
+    #Outputs inventory to a text file.
+    
+    with open(output_file, "w") as file:
+        file.write("====================================================================\n")
+        file.write("             LOGISTICS RECORDING CURRENT INVENTORY REPORT\n")
+        file.write("====================================================================\n")
+        file.write(f"{'Item Name':<15} | {'Brand Name':<20} | {'Qty':<5} | {'Analyst':<8} | {'Location'}\n")
+        file.write("-" * 75 + "\n")
+        for item, info in inventory.items():
+            file.write(f"{item:<15} | {info['Brand']:<20} | {info['Qty']:<5} | {info['Analyst']:<8} | {info['Location']}\n")
+        file.write("====================================================================\n")
+
+
+def main():
+    
+    explain_application()
+    save_to_file()
+    
+    while True:
+        user_choice = menu()
+        
+        if user_choice == "1":
+            add_supplies()
+        elif user_choice == "2":
+            view_supplies()
+        elif user_choice == "3":
+            check_out_location()
+        elif user_choice == "4":
+            print("\nThank you for using the program.")
+            
+if __name__ == "__main__":
+    main()
