@@ -25,7 +25,7 @@ def explain_application():
 
 def menu():
     
-    #Displays navigation options 
+    #Displays menu options
     
     print("\n--- Supply / Receiving Options ---")
     print("1. Add Supplies")
