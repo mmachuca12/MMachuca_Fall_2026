@@ -1,10 +1,8 @@
 #Logistics Receiving Application
 
-inventory = {
-    "Pipette": {"Brand": "Fisher Scientific", "Qty": 25, "Analyst": "LFB", "Location": "Laboratory"},
-    "Beaker": {"Brand": "Pyrex", "Qty": 50, "Analyst": "MDT", "Location": "Laboratory"},
-    "Journal": {"Brand": "BIC", "Qty": 10, "Analyst": "RZZ", "Location": "Office"}
-}
+inventory = {"Pipette": {"Brand": "Fisher Scientific", "Qty": 25, "Analyst": "LFB", "Location": "Laboratory"},
+            "Beaker": {"Brand": "Pyrex", "Qty": 50, "Analyst": "MDT", "Location": "Laboratory"},
+            "Journal": {"Brand": "BIC", "Qty": 10, "Analyst": "RZZ", "Location": "Office"}}
 
 output_file = "inventory_report.txt"
 
@@ -46,7 +44,7 @@ def add_supplies():
     analyst = input(" Ordered by analyst [initials]: ").strip()
     location = input(" Item Location: ").strip()
     
-    # Input to check for valid integer
+    # Check for valid integer
     while True:
 
         qty = int(input(" Quantity: "))
@@ -112,9 +110,10 @@ def save_to_file():
 
 
 def main():
-        save_to_file()
+    save_to_file()
+    explain_application()
     
-while True:
+    while True:
         user_choice = menu()
         
         if user_choice == "1":
@@ -126,4 +125,5 @@ while True:
         elif user_choice == "4":
             print("\nThank you for using the program.")
             break
-  
+
+main()
